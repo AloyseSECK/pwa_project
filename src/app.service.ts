@@ -4,6 +4,6 @@ import { HelloMessage } from './HelloMessage';
 @Injectable()
 export class AppService {
   getHello(name : string): HelloMessage {
-    return { hello : `hello ${name}!`} ; 
+    return { hello : `${name}!`} ; 
   }
 }

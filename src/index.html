@@ -3,13 +3,16 @@
 <header>
     <script>
         async function getHelloMessage() {
+            input_res = (document.getElementById("myInput")).value ;
             try {
-                const response = await fetch (`http://localhost:3000/hello/world`, {
+                const response = await fetch (`http://localhost:3000/hello/${input_res}`, {
                     headers : {
                         'Content-Type' : 'application/json',
                     },
                 });
-                const helloMessage = await response.json() ; 
+            
+                const helloMessage = await response.json() ;
+
                 alert (JSON.stringify(helloMessage)) ; 
             } catch (error) {
                 console.error(error) ; 
@@ -17,9 +20,12 @@
         }
     </script>
 </header>
+<input type="text" placeholder="type your name" id="myInput">
+
 <button onclick="getHelloMessage()">
     Cliquez ici
 </button>
+
 <body>
     
 </body>
